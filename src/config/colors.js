@@ -1,0 +1,17 @@
+export default {
+  primary: '#e65349',
+  secondary: '#4ecdc4',
+  black: '#000',
+  white: '#fff',
+  medium: '#6e6969',
+  light: '#f8f4f4',
+  dark: '#0c0c0c',
+  danger: '#ff5252',
+  mainBrown: '#9A8674',
+  mainWhite: '#FFFFFF',
+  whiteBackground: 'EDEDED',
+  mainOrange: '#FFA741',
+  mainBlue: '#05A895',
+  mainRed: '#FB5A48',
+  mainCream: '#EFDEC6',
+};
