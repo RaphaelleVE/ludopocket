@@ -1,28 +1,55 @@
-import React from 'react';
-import {StyleSheet, Image, ImageBackground, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Image, View} from 'react-native';
 import Screen from '../../components/Screen';
 import AppText from '../../components/AppText';
-import StatText from '../../components/StatText';
 import colors from '../../config/colors';
 import {IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ThreeSelectableButtons from '../../components/ThreeSelectableButtons';
 
 function GameDetailScreen({route, navigation}) {
-  console.log('inscreen');
   const {game} = route.params;
+  const [possessionSelected, setPossessionSelected] = useState(false);
+  const [playedSelected, setPlayedSelected] = useState(false);
+  const [favoriteSelected, setFavoriteSelected] = useState(false);
+
+  const handlePossessionPress = () => {
+    setPossessionSelected(!possessionSelected);
+    if(possessionSelected){
+      game.description = "test"
+    }
+  };
+
+  const handlePlayedPress = () => {
+    setPlayedSelected(!playedSelected);
+  };
+
+  const handleFavoritePress = () => {
+    setFavoriteSelected(!favoriteSelected);
+  };
+
   return (
     <Screen>
-      <IconButton
-        icon={() => <Icon name="arrow-left" color={colors.mainOrange} />}
-        iconColor={colors.mainOrange}
-        size={30}
-        style={styles.arrow}
-        onPress={() => navigation.goBack()}
-      />
+      <View style={styles.horizontalView}>
+        <IconButton
+          icon={() => <Icon name="arrow-left" color={colors.mainOrange} />}
+          size={30}
+          onPress={() => navigation.goBack()}
+          style={styles.arrow}
+        />
+        <AppText style={styles.titleText}>{game.title}</AppText>
+      </View>
       <View style={styles.mainContainer}>
         <Image style={styles.profilePic} source={game.image} />
-        <AppText style={styles.text}>{game.title}</AppText>
-        <StatText label={'nombre de jeux jouées:'} value={'23'} />
+        <ThreeSelectableButtons
+          possessionSelected={possessionSelected}
+          playedSelected={playedSelected}
+          favoriteSelected={favoriteSelected}
+          handlePossessionPress={handlePossessionPress}
+          handlePlayedPress={handlePlayedPress}
+          handleFavoritePress={handleFavoritePress}
+        />
+        <AppText style={styles.descText}>{game.description}</AppText>
       </View>
     </Screen>
   );
@@ -30,21 +57,32 @@ function GameDetailScreen({route, navigation}) {
 
 const styles = StyleSheet.create({
   profilePic: {
-    width: 200,
-    height: 200,
-    margin: 50,
+    width: 170,
+    height: 170,
     marginBottom: 10,
     alignSelf: 'center',
-    borderRadius: 100,
+    resizeMode: 'contain',
+    backgroundColor: colors.mainCream,
+  },
+  horizontalView: {
+    flexDirection: 'row',
   },
   arrow: {
-    marginL: 10,
+    marginLeft: 10,
   },
   mainContainer: {
     flex: 1,
   },
-  text: {
+  titleText: {
     alignSelf: 'center',
+    color: colors.mainOrange,
+    fontWeight: 'bold',
+  },
+  descText: {
+    alignSelf: 'flex-start',
+    margin: 20,
+    marginTop: 10,
+    fontSize: 12,
   },
 });
 

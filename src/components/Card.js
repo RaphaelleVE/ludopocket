@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     marginBottom: 10,
+    resizeMode: 'contain',
+    backgroundColor: colors.mainCream,
   },
   arrow: {
     marginEnd: 10,

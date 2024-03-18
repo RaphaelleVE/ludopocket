@@ -4,7 +4,7 @@ import colors from '../config/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {StyleSheet} from 'react-native';
 
-function CustomSearchBAr({onPress}) {
+function CustomSearchBAr({onSearchPress}) {
   const [value, setValue] = React.useState('');
 
   const clearSearch = () => {
@@ -12,21 +12,26 @@ function CustomSearchBAr({onPress}) {
     setValue('');
   };
 
+  const updateSearch = value => {
+  //  console.log(value);
+    setValue(value);
+    onSearchPress(value);
+  };
+
   return (
     <SearchBar
       platform="default"
       containerStyle={styles.searchcontainer}
       inputContainerStyle={{backgroundColor: colors.mainWhite}}
-      cancelIcon={() => <Icon name="remove" color={colors.mainOrange} />}
+      //cancelIcon={() => <Icon name="remove" color={colors.mainOrange} />}
       clearIcon={() => <Icon name="remove" color={colors.mainOrange} />}
       searchIcon={() => <Icon name="search" color={colors.mainOrange} />}
       inputStyle={{}}
       leftIconContainerStyle={{}}
       rightIconContainerStyle={{}}
       loadingProps={{}}
-      onChangeText={newVal => setValue(newVal)}
+      onChangeText={updateSearch}
       onClear={() => clearSearch}
-      onCancel={() => clearSearch}
       placeholder="Rechercher"
       placeholderTextColor="#FFFEF7"
       round

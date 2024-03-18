@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 const GameList = ({data, onGamePress}) => {
   const navigation = useNavigation();
   const handleGamePress = item => {
-    console.log('YES');
     // Utiliser la navigation pour aller vers GameDetailScreen avec l'item
     navigation.navigate('GameDetailScreen', {
       game: item,

@@ -5,55 +5,31 @@ import Card from '../../components/Card';
 import CustomSearchBar from '../../components/CustomSearchBar';
 import routes from '../../navigation/routes';
 import GameList from '../../components/GameList';
-
-const mockedData = [
-  {
-    id: 1,
-    title: 'Monopoly',
-    description: 'eihbaeribhaer',
-    image: require('../../assets/monopoly.jpg'),
-  },
-  {
-    id: 2,
-    title: 'Bonne paye',
-    description: 'qffl fvhevfhjfvhj',
-    image: require('../../assets/bonnePaye.jpeg'),
-  },
-];
-
-function searchGameByName() {
-  console.log('je cherche');
-}
+import mockedData from '../../data/mockedData';
 
 function SearchScreen({navigation}) {
-  const [data, setData] = useState(/* Votre liste de données initiale */);
+  const [data, setData] = useState(mockedData);
   const [filteredData, setFilteredData] = useState(data);
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = searchText => {
-    // Mettez à jour le terme de recherche
+    console.log('on search: ' + searchText);
     setSearchTerm(searchText);
-
-    // Filtrer la liste en fonction du terme de recherche
-    const filteredData = data.filter(item =>
-      item.nom.toLowerCase().includes(searchText.toLowerCase()),
+    setFilteredData(
+      mockedData.filter(item =>
+        item.title.toLowerCase().includes(searchText.toLowerCase()),
+      ),
     );
-
-    // Mettez à jour les données filtrées
     setData(filteredData);
-  };
-
-  const handleGamePress = item => {
-    navigation.navigate(routes.PRODUCTDETAILSCREEN, {product: item});
+    for (let game in filteredData) {
+      console.log('game:' + filteredData.title);
+    }
   };
 
   return (
     <Screen>
-      <CustomSearchBar
-        style={styles.searchBar}
-        onPress={() => console.log('oo')}
-      />
-      <GameList data={mockedData} onPress={handleGamePress} />
+      <CustomSearchBar style={styles.searchBar} onSearchPress={handleSearch} />
+      <GameList data={filteredData} />
     </Screen>
   );
 }

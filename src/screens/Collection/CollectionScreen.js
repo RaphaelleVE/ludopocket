@@ -6,27 +6,31 @@ import ThreeChoiceButtons from '../../components/ThreeChoiceButtons';
 import GameList from '../../components/GameList';
 import routes from '../../navigation/routes';
 import colors from '../../config/colors';
-
-const mockedData = [
-  {
-    id: 1,
-    title: 'Monopoly',
-    description: 'eihbaeribhaer',
-    image: require('../../assets/monopoly.jpg'),
-  },
-  {
-    id: 2,
-    title: 'Bonne paye',
-    description: 'qffl fvhevfhjfvhj',
-    image: require('../../assets/bonnePaye.jpeg'),
-  },
-];
+import mockedData from '../../data/mockedData';
 
 function CollectionScreen({navigation}) {
   const [activeToggle, setActiveToggle] = useState('collection');
   const handleTogglePress = toggle => {
     setActiveToggle(toggle);
   };
+  const [data, setData] = useState(mockedData);
+  const [filteredData, setFilteredData] = useState(data);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = searchText => {
+    console.log('on search: ' + searchText);
+    setSearchTerm(searchText);
+    setFilteredData(
+      mockedData.filter(item =>
+        item.title.toLowerCase().includes(searchText.toLowerCase()),
+      ),
+    );
+    setData(filteredData);
+    for (let game in filteredData) {
+      console.log('game:' + filteredData.title);
+    }
+  };
+
   return (
     <Screen>
       <ThreeChoiceButtons
@@ -42,8 +46,8 @@ function CollectionScreen({navigation}) {
           alignItems: 'center',
         }}
       />
-      <CustomSearchBar style={{}} onPress={() => console.log('oo')} />
-      <GameList data={mockedData} />
+      <CustomSearchBar style={{}} onSearchPress={handleSearch} />
+      <GameList data={filteredData} />
     </Screen>
   );
 }
