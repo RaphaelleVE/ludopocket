@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Image, View} from 'react-native';
 import Screen from '../../components/Screen';
 import AppText from '../../components/AppText';
@@ -9,23 +9,32 @@ import ThreeSelectableButtons from '../../components/ThreeSelectableButtons';
 
 function GameDetailScreen({route, navigation}) {
   const {game} = route.params;
-  const [possessionSelected, setPossessionSelected] = useState(false);
-  const [playedSelected, setPlayedSelected] = useState(false);
-  const [favoriteSelected, setFavoriteSelected] = useState(false);
+  const [possessionSelected, setPossessionSelected] = useState(game.owned);
+  const [playedSelected, setPlayedSelected] = useState(game.played);
+  const [favoriteSelected, setFavoriteSelected] = useState(game.wishlist);
+
+  useEffect(() => {
+    setPossessionSelected(game.owned);
+    setPlayedSelected(game.played);
+    setFavoriteSelected(game.wishlist);
+  }, [game]);
 
   const handlePossessionPress = () => {
     setPossessionSelected(!possessionSelected);
-    if(possessionSelected){
-      game.description = "test"
-    }
+    game.owned = !possessionSelected;
+    console.log(game.title + 'owned : ' + game.owned);
   };
 
   const handlePlayedPress = () => {
     setPlayedSelected(!playedSelected);
+    game.played = !playedSelected;
+    console.log(game.title + 'played : ' + game.played);
   };
 
   const handleFavoritePress = () => {
     setFavoriteSelected(!favoriteSelected);
+    game.wishlist = !favoriteSelected;
+    console.log(game.title + 'wishlist : ' + game.wishlist);
   };
 
   return (

@@ -9,6 +9,7 @@ import SearchScreen from '../screens/Search/SearchScreen';
 import colors from '../config/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import GameDetailScreen from '../screens/GameDetail/GameDetailScreen';
+import AddGameScreen from '../screens/AddGame/AddGameScreen';
 import routes from '../navigation/routes';
 
 const Stack = createNativeStackNavigator();
@@ -69,6 +70,21 @@ const BottomTabs = () => (
     <Tab.Screen
       name="GameDetailScreen"
       component={GameDetailScreen}
+      options={{
+        title: 'Détails du Jeu',
+        tabBarIcon: ({focused, size}) => (
+          <Icon
+            name="gamepad"
+            color={focused ? colors.mainOrange : colors.mainCream}
+            size={size}
+          />
+        ),
+        tabBarButton: () => null, // Cela masquera l'onglet GameDetailScreen dans la barre inférieure
+      }}
+    />
+    <Tab.Screen
+      name="AddGameScreen"
+      component={AddGameScreen}
       options={{
         title: 'Détails du Jeu',
         tabBarIcon: ({focused, size}) => (

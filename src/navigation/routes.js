@@ -8,4 +8,5 @@ export default Object.freeze({
   PRODUCTDETAILSCREEN: 'GameDetailScreen',
   SHOPPINGMANAGERSCREEN: 'ShoppingManagerScreen',
   BOTTOMBARNAVIGATOR: 'BottomBarNavigator',
+  ADDGAMESCREEN: 'AddGameScreen',
 });

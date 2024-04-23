@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Image, ImageBackground} from 'react-native';
+import {StyleSheet, Image, ImageBackground, Alert} from 'react-native';
 import Screen from '../../components/Screen';
 import Form from '../../components/forms/Form';
 import AppButton from '../../components/AppButton';
 import AppFormField from '../../components/forms/FormField';
 import InputContainer from '../../components/forms/InputContainer';
 import ButtonContainer from '../../components/forms/ButtonContainer';
+import {nhostClient} from '../../services/nhostSDK/nhostInit';
 import routes from '../../navigation/routes';
 
 function LoginScreen({navigation}) {
@@ -13,10 +14,17 @@ function LoginScreen({navigation}) {
   const [password, setPassword] = useState('');
 
   //When user is connected, change the page to profile
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    try{
+    await nhostClient.auth.signIn({
+      email: email,
+      password:  password
+    })
     navigation.navigate(routes.BOTTOMBARNAVIGATOR);
-    //TODO NAVIGATE
-    //() => navigation.navigate(routes.MAINPAGESSCREEN);
+  }catch(e){
+    console.log(e.message);
+    Alert.alert('Error during Login', e.message);
+  }
   };
 
   return (
