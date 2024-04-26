@@ -8,6 +8,8 @@ import routes from '../../navigation/routes';
 import InputContainer from '../../components/forms/InputContainer';
 import ButtonContainer from '../../components/forms/ButtonContainer';
 import AppFormField from '../../components/forms/FormField';
+import LoadingPopUp from '../../components/popup/LoadingPopUp';
+
 import { useUserId, useSignUpEmailPassword, useNhostClient } from "@nhost/react";
 
 let emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -44,7 +46,11 @@ function SignupScreen({ navigation }) {
   }, [formState.email, formState.password, formState.confirmPassword, formState.pseudo]);
 
   const handleRegister = async () => {
-    console.log("handle");
+    if (isLoading) {
+      console.log("is already loading");
+      return;
+    }
+    
     if (formDataValid) {
       console.log("formvalid");
       try {
@@ -65,40 +71,11 @@ function SignupScreen({ navigation }) {
       } catch (e) {
         console.log(e.message);
         Alert.alert('Error Registering Account', e.message);
-       // setLoading(false);
       }
     } else {
       Alert.alert('Invalid Form Fields');
-      //setLoading(false);
     }
   };
-
-/*try {
-        const signUpResponse = await nhostClient.auth.signUp({
-          email: formState.email,
-          password: formState.password,
-        });
-        await nhostClient.auth.signIn({
-          email: formState.email,
-          password: formState.password,
-        });
-        const clientID = nhostClient.auth.getUser().id;
-        const { data, error } = await insertUserMutation({
-          variables: {
-            authUserID: clientID,
-            pseudo: "test"
-          },
-        });
-        if (error) {
-          console.error({ error });
-        }
-        console.log('User created:', data.insert_user_one);
-        navigation.navigate(routes.BOTTOMBARNAVIGATOR);
-        setLoading(false);
-      } catch (e) {
-        console.log(e.message);
-        Alert.alert('Error Registering Account', e.message);
-      }*/
   return (
     <Screen>
       <ImageBackground
@@ -181,6 +158,7 @@ function SignupScreen({ navigation }) {
             />
           </ButtonContainer>
         </Form>
+        <LoadingPopUp visible={isLoading} />
       </ImageBackground>
     </Screen>
   );

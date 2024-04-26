@@ -16,13 +16,12 @@ const GameList = ({data, onGamePress}) => {
     <FlatList
       style={styles.screen}
       data={data}
-      keyExtractor={item => item.id.toString()}
+      keyExtractor={item => item.barcodeID.toString()}
       renderItem={({item}) => (
         <Card
-          title={item.title}
-          subTitle={item.price}
+          title={item.name}
           image={item.image}
-          id={item.id}
+          id={item.barcodeID}
           onPress={() => handleGamePress(item)}
         />
       )}

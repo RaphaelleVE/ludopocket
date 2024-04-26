@@ -12,6 +12,7 @@ function GameDetailScreen({route, navigation}) {
   const [possessionSelected, setPossessionSelected] = useState(game.owned);
   const [playedSelected, setPlayedSelected] = useState(game.played);
   const [favoriteSelected, setFavoriteSelected] = useState(game.wishlist);
+  const imageUri = `data:image/jpeg;base64,${game.image}`;
 
   useEffect(() => {
     setPossessionSelected(game.owned);
@@ -49,7 +50,7 @@ function GameDetailScreen({route, navigation}) {
         <AppText style={styles.titleText}>{game.title}</AppText>
       </View>
       <View style={styles.mainContainer}>
-        <Image style={styles.profilePic} source={game.image} />
+        <Image style={styles.profilePic} source={{uri: imageUri}} />
         <ThreeSelectableButtons
           possessionSelected={possessionSelected}
           playedSelected={playedSelected}

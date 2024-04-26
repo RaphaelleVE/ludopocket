@@ -9,11 +9,12 @@ import routes from '../navigation/routes';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 //component for chopping list
-function Card({onPress, image, subTitle, title, id}) {
+function Card({onPress, image, title, id}) {
+  const imageUri = `data:image/jpeg;base64,${image}`;
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{uri: imageUri}} />
         <View style={styles.detailContainer}>
           <Text style={styles.text}>{title}</Text>
           <Icon

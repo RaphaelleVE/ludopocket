@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Image, ImageBackground, Alert} from 'react-native';
 import Screen from '../../components/Screen';
 import Form from '../../components/forms/Form';
@@ -6,21 +6,31 @@ import AppButton from '../../components/AppButton';
 import AppFormField from '../../components/forms/FormField';
 import InputContainer from '../../components/forms/InputContainer';
 import ButtonContainer from '../../components/forms/ButtonContainer';
-import {nhostClient} from '../../services/nhostSDK/nhostInit';
 import routes from '../../navigation/routes';
+import LoadingPopUp from '../../components/popup/LoadingPopUp';
+
+import {useUserData, useSignInEmailPassword } from "@nhost/react";
+
 
 function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { signInEmailPassword, isLoading} = useSignInEmailPassword();
 
-  //When user is connected, change the page to profile
   const handleLogin = async () => {
     try{
-    await nhostClient.auth.signIn({
-      email: email,
-      password:  password
-    })
-    navigation.navigate(routes.BOTTOMBARNAVIGATOR);
+      if (isLoading) {
+        return;
+      }
+      const { error,isSuccess} = await signInEmailPassword(email, password);
+      if (error) {
+        console.log(error.message);
+        Alert.alert("Couldn't sign in!", error.message);
+      }
+      if(isSuccess){
+     // console.log(userData.id + userData);
+      navigation.navigate(routes.BOTTOMBARNAVIGATOR);
+      }
   }catch(e){
     console.log(e.message);
     Alert.alert('Error during Login', e.message);
@@ -70,6 +80,7 @@ function LoginScreen({navigation}) {
             />
           </ButtonContainer>
         </Form>
+        <LoadingPopUp visible={isLoading} />
       </ImageBackground>
     </Screen>
   );

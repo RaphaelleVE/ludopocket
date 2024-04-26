@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Image, ImageBackground, View} from 'react-native';
 import Screen from '../../components/Screen';
 import AppText from '../../components/AppText';
 import StatText from '../../components/StatText';
+import { useUser } from '../../data/contexts/UserContext';
+
 
 function ProfileScreen({navigation}) {
+  const { userData } = useUser();
+
+  console.log("profile " + userData.id)
   return (
     <Screen>
       <View style={styles.mainContainer}>
@@ -12,7 +17,7 @@ function ProfileScreen({navigation}) {
           style={styles.profilePic}
           source={require('../../assets/petitchat.png')}
         />
-        <AppText style={styles.text}>{'testpseudi'}</AppText>
+        <AppText style={styles.text}>{userData.displayName}</AppText>
         <StatText label={'nombre de jeux jouées:'} value={'23'} />
       </View>
     </Screen>

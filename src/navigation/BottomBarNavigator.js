@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SafeAreaView, StatusBar, Platform} from 'react-native';
@@ -10,13 +10,23 @@ import colors from '../config/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import GameDetailScreen from '../screens/GameDetail/GameDetailScreen';
 import AddGameScreen from '../screens/AddGame/AddGameScreen';
-import routes from '../navigation/routes';
+import { UserProvider, useUser, updateUser } from '../data/contexts/UserContext'; 
+import {useUserData} from "@nhost/react";
+
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => (
-  <Tab.Navigator
+const BottomTabs  = () => {
+  const userAuthData = useUserData();
+  const { setUserData } = useUser();
+  useEffect(() => {
+      updateUser(userAuthData, setUserData);
+      console.log("nav " + userAuthData.id);
+  }, [userAuthData, setUserData]);
+
+  return ( <Tab.Navigator
     screenOptions={{
       headerShown: false,
       tabBarStyle: {
@@ -98,9 +108,11 @@ const BottomTabs = () => (
       }}
     />
   </Tab.Navigator>
-);
+)};
 
-const BottomBarNavigator = () => (
+function BottomBarNavigator() {
+  return(
+    <UserProvider>
   <Stack.Navigator>
     <Stack.Screen
       name="BottomTabs"
@@ -118,6 +130,7 @@ const BottomBarNavigator = () => (
       }}
     />
   </Stack.Navigator>
-);
+  </UserProvider>
+)};
 
 export default BottomBarNavigator;

@@ -10,15 +10,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../config/colors';
 import mockedData from '../../data/mockedData';
 
+
+
 function CollectionScreen({navigation}) {
   const [activeToggle, setActiveToggle] = useState('collection');
-  const [data, setData] = useState(mockedData);
+const [data, setData] = useState(mockedData);
   const [filteredData, setFilteredData] = useState(data);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     filterGameData(activeToggle, searchTerm);
   }, []); // Empty dependency array means this effect runs once when component mounts
+
 
   const handleTogglePress = toggle => {
     setActiveToggle(toggle);
@@ -71,7 +74,7 @@ function CollectionScreen({navigation}) {
         }}
       />
       <CustomSearchBar style={{}} onSearchPress={handleSearch} />
-      <GameList data={filteredData} />
+     
       <View style={styles.addButton}>
         <IconButton
           icon={() => <Icon name="plus" color={colors.mainWhite} size={18} />}
@@ -84,6 +87,7 @@ function CollectionScreen({navigation}) {
     </Screen>
   );
 }
+// <GameList data={filteredData} />
 const styles = StyleSheet.create({
   addButton: {
     alignSelf: 'flex-end',
