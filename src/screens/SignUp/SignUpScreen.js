@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, Image, ImageBackground, Alert } from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Image, ImageBackground, Alert} from 'react-native';
 import Screen from '../../components/Screen';
 import AppButton from '../../components/AppButton';
 import * as Yup from 'yup';
@@ -10,7 +10,7 @@ import ButtonContainer from '../../components/forms/ButtonContainer';
 import AppFormField from '../../components/forms/FormField';
 import LoadingPopUp from '../../components/popup/LoadingPopUp';
 
-import { useUserId, useSignUpEmailPassword, useNhostClient } from "@nhost/react";
+import {useUserId, useSignUpEmailPassword, useNhostClient} from '@nhost/react';
 
 let emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 });
 
 // Function to handle user sign-up
-function SignupScreen({ navigation }) {
+function SignupScreen({navigation}) {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -30,7 +30,7 @@ function SignupScreen({ navigation }) {
   });
 
   const nhostClient = useNhostClient();
-  const { signUpEmailPassword, isLoading } = useSignUpEmailPassword();
+  const {signUpEmailPassword, isLoading} = useSignUpEmailPassword();
   const userId = useUserId();
 
   const formDataValid = React.useMemo(() => {
@@ -43,26 +43,34 @@ function SignupScreen({ navigation }) {
     } else {
       return true;
     }
-  }, [formState.email, formState.password, formState.confirmPassword, formState.pseudo]);
+  }, [
+    formState.email,
+    formState.password,
+    formState.confirmPassword,
+    formState.pseudo,
+  ]);
 
   const handleRegister = async () => {
     if (isLoading) {
-      console.log("is already loading");
+      console.log('is already loading');
       return;
     }
-    
+
     if (formDataValid) {
-      console.log("formvalid");
+      console.log('formvalid');
       try {
-        console.log("try");
-        const { error, isSuccess } = await signUpEmailPassword(formState.email, formState.password, {
-          displayName: formState.pseudo
-        });
-        console.log("end call");
-        console.log(userId);
+        console.log('try');
+        const {error, isSuccess} = await signUpEmailPassword(
+          formState.email,
+          formState.password,
+          {
+            displayName: formState.pseudo,
+          },
+        );
+        console.log('end call');
         console.log(userId);
         if (error) {
-          Alert.alert("Oops", error.message);
+          Alert.alert('Oops', error.message);
         }
         if (isSuccess) {
           console.log(userId);
@@ -96,7 +104,7 @@ function SignupScreen({ navigation }) {
           onSubmit={values => console.log(values)}
           validationSchema={validationSchema}>
           <InputContainer>
-          <AppFormField
+            <AppFormField
               name="pseudo"
               state={formState.pseudo}
               placeholder="Pseudo"

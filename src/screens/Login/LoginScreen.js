@@ -9,32 +9,31 @@ import ButtonContainer from '../../components/forms/ButtonContainer';
 import routes from '../../navigation/routes';
 import LoadingPopUp from '../../components/popup/LoadingPopUp';
 
-import {useUserData, useSignInEmailPassword } from "@nhost/react";
-
+import {useUserData, useSignInEmailPassword} from '@nhost/react';
 
 function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signInEmailPassword, isLoading} = useSignInEmailPassword();
+  const {signInEmailPassword, isLoading} = useSignInEmailPassword();
 
   const handleLogin = async () => {
-    try{
+    try {
       if (isLoading) {
         return;
       }
-      const { error,isSuccess} = await signInEmailPassword(email, password);
+      const {error, isSuccess} = await signInEmailPassword(email, password);
       if (error) {
         console.log(error.message);
         Alert.alert("Couldn't sign in!", error.message);
       }
-      if(isSuccess){
-     // console.log(userData.id + userData);
-      navigation.navigate(routes.BOTTOMBARNAVIGATOR);
+      if (isSuccess) {
+        // console.log(userData.id + userData);
+        navigation.navigate(routes.BOTTOMBARNAVIGATOR);
       }
-  }catch(e){
-    console.log(e.message);
-    Alert.alert('Error during Login', e.message);
-  }
+    } catch (e) {
+      console.log(e.message);
+      Alert.alert('Error during Login', e.message);
+    }
   };
 
   return (

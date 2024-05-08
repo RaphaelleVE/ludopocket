@@ -3,13 +3,12 @@ import {StyleSheet, Image, ImageBackground, View} from 'react-native';
 import Screen from '../../components/Screen';
 import AppText from '../../components/AppText';
 import StatText from '../../components/StatText';
-import { useUser } from '../../data/contexts/UserContext';
-
+import {useUser} from '../../data/contexts/UserContext';
 
 function ProfileScreen({navigation}) {
-  const { userData } = useUser();
+  const {userData} = useUser();
 
-  console.log("profile " + userData.id)
+  console.log('profile ' + userData.id);
   return (
     <Screen>
       <View style={styles.mainContainer}>

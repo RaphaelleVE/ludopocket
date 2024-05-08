@@ -2,7 +2,6 @@
 
 //import nhost from 'nhost-js-sdk';
 
-
 /*export const nhost = new NhostClient({
   subdomain: "xtsxnjrbljpyoktbqmac",
   region: "eu-central-1"
@@ -15,13 +14,12 @@
 };*/
 ///import { NhostClient } from '@nhost/nhost-js'
 
-
-import { NhostClient } from "@nhost/react";
+import {NhostClient} from '@nhost/react';
 
 export const nhostClient = new NhostClient({
   subdomain: 'xtsxnjrbljpyoktbqmac',
   region: 'eu-central-1',
-})
+});
 
 //nhost.initializeApp(config);
 

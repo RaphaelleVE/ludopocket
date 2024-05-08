@@ -9,19 +9,29 @@ import {IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../config/colors';
 import mockedData from '../../data/mockedData';
-
-
+import {useRegisteredGamesData} from '../../data/contexts/RegisteredGameContext';
 
 function CollectionScreen({navigation}) {
+  const {RegisteredGamesData} = useRegisteredGamesData();
   const [activeToggle, setActiveToggle] = useState('collection');
-const [data, setData] = useState(mockedData);
-  const [filteredData, setFilteredData] = useState(data);
+ //const [data, setData] = useState(RegisteredGamesData);
+  const [filteredData, setFilteredData] = useState(RegisteredGamesData);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    filterGameData(activeToggle, searchTerm);
-  }, []); // Empty dependency array means this effect runs once when component mounts
+  /*useEffect(() => {
+    if (RegisteredGamesData) {
+      setData(RegisteredGamesData);
+      setFilteredData(RegisteredGamesData);
+      console.log('jeu enregistré ' + RegisteredGamesData);
+    }
+  }, [RegisteredGamesData]);*/
 
+  useEffect(() => {
+    if (RegisteredGamesData) {
+      filterGameData(activeToggle, searchTerm);
+    }
+    console.log('setup filter ');
+  }, [RegisteredGamesData]);
 
   const handleTogglePress = toggle => {
     setActiveToggle(toggle);
@@ -36,19 +46,20 @@ const [data, setData] = useState(mockedData);
   };
 
   const filterGameData = (toggle, searchText) => {
-    let filtered = mockedData.filter(item => {
+    let filtered = RegisteredGamesData.filter(item => {
+      console.log(item.isOwned);
       let matchesCategory = true;
       if (toggle === 'collection') {
-        matchesCategory = item.owned === true;
+        matchesCategory = item.isOwned === true;
       } else if (toggle === 'wishlist') {
-        matchesCategory = item.wishlist === true;
+        matchesCategory = item.isWished === true;
       } else if (toggle === 'played') {
-        matchesCategory = item.played === true;
+        matchesCategory = item.isPlayed === true;
       }
 
       let matchesSearch = true;
       if (searchText !== '') {
-        matchesSearch = item.title
+        matchesSearch = item.BOARD_GAME.name
           .toLowerCase()
           .includes(searchText.toLowerCase());
       }
@@ -74,13 +85,13 @@ const [data, setData] = useState(mockedData);
         }}
       />
       <CustomSearchBar style={{}} onSearchPress={handleSearch} />
-     
+      <GameList data={filteredData} />
       <View style={styles.addButton}>
         <IconButton
           icon={() => <Icon name="plus" color={colors.mainWhite} size={18} />}
           mode="contained"
           containerColor={colors.mainOrange}
-          onPress={() => navigation.navigate(routes.ADDGAMESCREEN)}
+          onPress={() => navigation.navigate(routes.SCANSCREEN)}
           size={30}
         />
       </View>
