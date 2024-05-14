@@ -1,4 +1,4 @@
-L'APK de l'application a directement été fourni dans le rendu d'icampus. 
+Vous trouverez l'apk directement sur ce lien, afin de faciliter l'installation pour les appreils android: https://drive.google.com/drive/folders/1a7-iUbH6TcyXyUHVzk1NYD9sJj32PQhr?usp=drive_link
 
 Voici les étapes a suivre pour installer l'APK (pour les téléphones android) : 
 
