@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 const GameList = ({data, onGamePress}) => {
   const navigation = useNavigation();
   const handleGamePress = item => {
-    console.log('YES');
     // Utiliser la navigation pour aller vers GameDetailScreen avec l'item
     navigation.navigate('GameDetailScreen', {
       game: item,
@@ -17,14 +16,19 @@ const GameList = ({data, onGamePress}) => {
     <FlatList
       style={styles.screen}
       data={data}
-      keyExtractor={item => item.id.toString()}
+      keyExtractor={item =>
+        item.barcodeID
+          ? item.barcodeID.toString()
+          : item.BOARD_GAME.barcodeID.toString()
+      }
       renderItem={({item}) => (
         <Card
-          title={item.title}
-          subTitle={item.price}
-          image={item.image}
-          id={item.id}
-          onPress={() => handleGamePress(item)}
+          title={item.name ?? item.BOARD_GAME.name}
+          image={item.image ?? item.BOARD_GAME.image}
+          id={item.barcodeID ?? item.BOARD_GAME.barcodeID}
+          onPress={() =>
+            handleGamePress(item.barcodeID ? item : item.BOARD_GAME)
+          }
         />
       )}
     />

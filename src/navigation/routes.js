@@ -5,7 +5,9 @@ export default Object.freeze({
   CARTSCREEN: 'CartScreen',
   MAINPAGESSCREEN: 'MainPagesScreen',
   PROFILESCREEN: 'ProfileScreen',
-  PRODUCTDETAILSCREEN: 'GameDetailScreen',
+  GAMEDETAILSCREEN: 'GameDetailScreen',
   SHOPPINGMANAGERSCREEN: 'ShoppingManagerScreen',
   BOTTOMBARNAVIGATOR: 'BottomBarNavigator',
+  ADDGAMESCREEN: 'AddGameScreen',
+  SCANSCREEN: 'ScanScreen',
 });

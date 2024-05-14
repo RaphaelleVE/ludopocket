@@ -2,13 +2,15 @@ import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+import {nhostClient} from '../services/nhostSDK/nhostInit';
+
 import colors from '../config/colors';
 
 function TopAppBarNavigator({title}) {
   const navigation = useNavigation();
 
-  const handleLogout = () => {
-    // Ajoutez ici le code de déconnexion ou de navigation vers les écrans de connexion
+  const handleLogout = async () => {
+    await nhostClient.auth.signOut();
     navigation.goBack();
   };
 
