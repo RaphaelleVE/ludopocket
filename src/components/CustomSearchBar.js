@@ -35,7 +35,6 @@ function CustomSearchBAr({onSearchPress}) {
       placeholder="Rechercher"
       placeholderTextColor="#FFFEF7"
       round
-      showCancel
       cancelButtonTitle="Cancel"
       cancelButtonProps={{}}
       value={value}

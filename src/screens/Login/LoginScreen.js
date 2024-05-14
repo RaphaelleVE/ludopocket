@@ -28,6 +28,7 @@ function LoginScreen({navigation}) {
       }
       if (isSuccess) {
         // console.log(userData.id + userData);
+        setPassword('');
         navigation.navigate(routes.BOTTOMBARNAVIGATOR);
       }
     } catch (e) {
@@ -92,8 +93,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: 350,
+    height: 350,
     top: 70,
     alignItems: 'center',
     position: 'absolute',

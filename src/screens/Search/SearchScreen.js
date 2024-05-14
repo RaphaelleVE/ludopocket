@@ -11,7 +11,6 @@ import Card from '../../components/Card';
 import CustomSearchBar from '../../components/CustomSearchBar';
 import routes from '../../navigation/routes';
 import GameList from '../../components/GameList';
-import mockedData from '../../data/mockedData';
 import {useQuery} from '@apollo/client';
 import {GET_ALL_BOARD_GAMES} from '../../services/graphql/query/BoardGameQueries';
 import LoadingPopUp from '../../components/popup/LoadingPopUp';

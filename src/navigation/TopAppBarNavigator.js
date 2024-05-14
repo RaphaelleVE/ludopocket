@@ -10,7 +10,6 @@ function TopAppBarNavigator({title}) {
   const navigation = useNavigation();
 
   const handleLogout = async () => {
-    // Ajoutez ici le code de déconnexion ou de navigation vers les écrans de connexion
     await nhostClient.auth.signOut();
     navigation.goBack();
   };

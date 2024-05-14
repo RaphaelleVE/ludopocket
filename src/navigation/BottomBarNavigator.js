@@ -30,20 +30,19 @@ const BottomTabs = () => {
   const {setUserData} = useUser();
   const {loading, error, data} = useQuery(GET_ALL_REGISTERED_BOARD_GAMES, {
     variables: {
-      userID: userAuthData.id, // Remplacez 'ID_DE_L_UTILISATEUR' par l'ID de l'utilisateur actuel
+      userID: userAuthData ? userAuthData.id : null,
     },
+    skip: !userAuthData,
   });
   const {setRegisteredGamesData} = useRegisteredGamesData();
 
   useEffect(() => {
     updateUser(userAuthData, setUserData);
-    console.log('nav ' + userAuthData.id);
   }, [userAuthData, setUserData]);
 
   useEffect(() => {
     console.log('useeffect');
     if (data) {
-      //console.log('data ok : ' + data);
       data.REGISTERED_GAME.forEach(registeredGame => {
         console.log('Nom du jeu enregistré : ', registeredGame.BOARD_GAME.name);
       });

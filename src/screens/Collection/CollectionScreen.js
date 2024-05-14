@@ -8,7 +8,6 @@ import routes from '../../navigation/routes';
 import {IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../config/colors';
-import mockedData from '../../data/mockedData';
 import {useRegisteredGamesData} from '../../data/contexts/RegisteredGameContext';
 
 function CollectionScreen({navigation}) {
@@ -98,7 +97,6 @@ function CollectionScreen({navigation}) {
     </Screen>
   );
 }
-// <GameList data={filteredData} />
 const styles = StyleSheet.create({
   addButton: {
     alignSelf: 'flex-end',

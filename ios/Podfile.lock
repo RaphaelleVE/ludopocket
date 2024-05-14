@@ -1123,6 +1123,22 @@ PODS:
     - React-jsi (= 0.73.4)
     - React-logger (= 0.73.4)
     - React-perflogger (= 0.73.4)
+  - RNFS (2.20.0):
+    - React-Core
+  - RNImageCropPicker (0.41.0):
+    - React-Core
+    - React-RCTImage
+    - RNImageCropPicker/QBImagePickerController (= 0.41.0)
+    - TOCropViewController (~> 2.7.3)
+  - RNImageCropPicker/QBImagePickerController (0.41.0):
+    - React-Core
+    - React-RCTImage
+    - TOCropViewController (~> 2.7.3)
+  - RNReanimated (3.11.0):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+    - ReactCommon/turbomodule/core
   - RNScreens (3.30.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1132,6 +1148,13 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - SocketRocket (0.6.1)
+  - TOCropViewController (2.7.4)
+  - VisionCamera (4.0.3):
+    - VisionCamera/Core (= 4.0.3)
+    - VisionCamera/React (= 4.0.3)
+  - VisionCamera/Core (4.0.3)
+  - VisionCamera/React (4.0.3):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -1210,8 +1233,12 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNFS (from `../node_modules/react-native-fs`)
+  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1229,6 +1256,7 @@ SPEC REPOS:
     - libevent
     - OpenSSL-Universal
     - SocketRocket
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   boost:
@@ -1332,10 +1360,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
+  RNImageCropPicker:
+    :path: "../node_modules/react-native-image-crop-picker"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  VisionCamera:
+    :path: "../node_modules/react-native-vision-camera"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1402,9 +1438,14 @@ SPEC CHECKSUMS:
   React-runtimescheduler: ed48e5faac6751e66ee1261c4bd01643b436f112
   React-utils: 6e5ad394416482ae21831050928ae27348f83487
   ReactCommon: 840a955d37b7f3358554d819446bffcf624b2522
+  RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
+  RNImageCropPicker: 13eab07a785c7a8f8047a1146f7e59d1911c7bb8
+  RNReanimated: 071599dab9e3769c03b84c984c87dc79087fef2f
   RNScreens: 77fc79e66b726ee45b091486b348418ee1d792ab
   RNVectorIcons: 210f910e834e3485af40693ad4615c1ec22fc02b
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
+  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
+  VisionCamera: 6ec753da6360981b4d1796cd13130ff9f4350ec9
   Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
 
 PODFILE CHECKSUM: d44dbee1c62cf11312ee1a4ade930f195e9a2c29

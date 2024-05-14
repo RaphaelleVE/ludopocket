@@ -7,6 +7,8 @@ export const INSERT_REGISTERED_GAMES = gql`
     $isPlayed: Boolean = false
     $isWished: Boolean = false
     $userID: uuid!
+    $dateLastPlayed: date
+    $numberOfTimePlayed: Int
   ) {
     insert_REGISTERED_GAME_one(
       object: {
@@ -15,6 +17,8 @@ export const INSERT_REGISTERED_GAMES = gql`
         isPlayed: $isPlayed
         isWished: $isWished
         userID: $userID
+        dateLastPlayed: $dateLastPlayed
+        numberOfTimePlayed: $numberOfTimePlayed
       }
     ) {
       registeredGameID
@@ -28,6 +32,9 @@ export const INSERT_REGISTERED_GAMES = gql`
       isOwned
       isPlayed
       isWished
+      datePossessedSince
+      dateLastPlayed
+      numberOfTimePlayed
     }
   }
 `;
@@ -54,6 +61,40 @@ export const UPDATE_REGISTERED_GAMES = gql`
       isOwned
       isPlayed
       isWished
+      datePossessedSince
+      dateLastPlayed
+      numberOfTimePlayed
+    }
+  }
+`;
+
+export const UPDATE_PLAYED_DATA_REGISTERED_GAMES = gql`
+  mutation UpdatePlayedDataRegisteredGame(
+    $registeredGameID: uuid!
+    $dateLastPlayed: date!
+    $numberOfTimePlayed: Int!
+  ) {
+    update_REGISTERED_GAME_by_pk(
+      pk_columns: {registeredGameID: $registeredGameID}
+      _set: {
+        dateLastPlayed: $dateLastPlayed
+        numberOfTimePlayed: $numberOfTimePlayed
+      }
+    ) {
+      registeredGameID
+      boardGameID
+      BOARD_GAME {
+        barcodeID
+        description
+        image
+        name
+      }
+      isOwned
+      isPlayed
+      isWished
+      datePossessedSince
+      dateLastPlayed
+      numberOfTimePlayed
     }
   }
 `;

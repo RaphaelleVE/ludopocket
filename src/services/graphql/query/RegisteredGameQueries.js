@@ -9,6 +9,9 @@ export const GET_ONE_REGISTERED_GAME = gql`
       isPlayed
       isOwned
       registeredGameID
+      datePossessedSince
+      dateLastPlayed
+      numberOfTimePlayed
     }
   }
 `;
@@ -27,6 +30,9 @@ export const GET_ALL_REGISTERED_BOARD_GAMES = gql`
       isOwned
       isPlayed
       isWished
+      datePossessedSince
+      dateLastPlayed
+      numberOfTimePlayed
     }
   }
 `;

@@ -11,10 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1B009F4FED17ACCF76B2BD81 /* libPods-Ludopocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF211E279167E4EBCA8970C /* libPods-Ludopocket.a */; };
-		360C7CC93EC2E52E4B1ACC00 /* libPods-Ludopocket-LudopocketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5526822E7A04D361625C205A /* libPods-Ludopocket-LudopocketTests.a */; };
+		7EC4435457353DDCD96D158C /* libPods-Ludopocket-LudopocketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A89A6FDC882876BC68F6A51 /* libPods-Ludopocket-LudopocketTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AF330AC92B8E197B0041F625 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = AF330AC82B8E197B0041F625 /* Fonts */; };
+		CD21F3BE314E50F4AC159E6B /* libPods-Ludopocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585F2C0D31A93B03C353B261 /* libPods-Ludopocket.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,15 +37,15 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Ludopocket/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Ludopocket/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Ludopocket/main.m; sourceTree = "<group>"; };
-		5526822E7A04D361625C205A /* libPods-Ludopocket-LudopocketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ludopocket-LudopocketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C1480B2BBB79461BDF77AC3 /* Pods-Ludopocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket.debug.xcconfig"; path = "Target Support Files/Pods-Ludopocket/Pods-Ludopocket.debug.xcconfig"; sourceTree = "<group>"; };
+		585F2C0D31A93B03C353B261 /* libPods-Ludopocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ludopocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A89A6FDC882876BC68F6A51 /* libPods-Ludopocket-LudopocketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ludopocket-LudopocketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Ludopocket/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8652774DBD7D2B2F334BB6FB /* Pods-Ludopocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket.release.xcconfig"; path = "Target Support Files/Pods-Ludopocket/Pods-Ludopocket.release.xcconfig"; sourceTree = "<group>"; };
-		8EF211E279167E4EBCA8970C /* libPods-Ludopocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ludopocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90B12027975C4A7CEF89AE22 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket-LudopocketTests.release.xcconfig"; path = "Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests.release.xcconfig"; sourceTree = "<group>"; };
-		A05304C706428B03DE54BEC9 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket-LudopocketTests.debug.xcconfig"; path = "Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8FFED19067D75543F1875F37 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket-LudopocketTests.release.xcconfig"; path = "Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests.release.xcconfig"; sourceTree = "<group>"; };
+		90CE16326BBF9D6B37129CE0 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket-LudopocketTests.debug.xcconfig"; path = "Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF330AC82B8E197B0041F625 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		C95489BD663C514FD851ECDB /* Pods-Ludopocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket.release.xcconfig"; path = "Target Support Files/Pods-Ludopocket/Pods-Ludopocket.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FA5862BC1DE6FB0C542F9367 /* Pods-Ludopocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ludopocket.debug.xcconfig"; path = "Target Support Files/Pods-Ludopocket/Pods-Ludopocket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				360C7CC93EC2E52E4B1ACC00 /* libPods-Ludopocket-LudopocketTests.a in Frameworks */,
+				7EC4435457353DDCD96D158C /* libPods-Ludopocket-LudopocketTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B009F4FED17ACCF76B2BD81 /* libPods-Ludopocket.a in Frameworks */,
+				CD21F3BE314E50F4AC159E6B /* libPods-Ludopocket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8EF211E279167E4EBCA8970C /* libPods-Ludopocket.a */,
-				5526822E7A04D361625C205A /* libPods-Ludopocket-LudopocketTests.a */,
+				585F2C0D31A93B03C353B261 /* libPods-Ludopocket.a */,
+				7A89A6FDC882876BC68F6A51 /* libPods-Ludopocket-LudopocketTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,10 +143,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FA5862BC1DE6FB0C542F9367 /* Pods-Ludopocket.debug.xcconfig */,
-				8652774DBD7D2B2F334BB6FB /* Pods-Ludopocket.release.xcconfig */,
-				A05304C706428B03DE54BEC9 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */,
-				90B12027975C4A7CEF89AE22 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */,
+				1C1480B2BBB79461BDF77AC3 /* Pods-Ludopocket.debug.xcconfig */,
+				C95489BD663C514FD851ECDB /* Pods-Ludopocket.release.xcconfig */,
+				90CE16326BBF9D6B37129CE0 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */,
+				8FFED19067D75543F1875F37 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -158,12 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "LudopocketTests" */;
 			buildPhases = (
-				FCAEA38EE37ED570264F2F8C /* [CP] Check Pods Manifest.lock */,
+				EE4A15E7C86E7B922257B0CE /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				EE63342F4943458421159D05 /* [CP] Embed Pods Frameworks */,
-				987EE756BDB7459E9A9F4C67 /* [CP] Copy Pods Resources */,
+				729E2DF4C71102EC3D7A2260 /* [CP] Embed Pods Frameworks */,
+				229F3402127BFA01E1AF493C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,13 +179,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Ludopocket" */;
 			buildPhases = (
-				DC54BB0AA678ABD0AACEE015 /* [CP] Check Pods Manifest.lock */,
+				46272CE46AD73E2FB05A96AD /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				4818B470AE59BD53039778B2 /* [CP] Embed Pods Frameworks */,
-				ABF7123878116CC4E773B2FD /* [CP] Copy Pods Resources */,
+				56D79E7E14F8392139EB6ECF /* [CP] Embed Pods Frameworks */,
+				48083B05430C5110695EA130 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,24 +269,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		4818B470AE59BD53039778B2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		987EE756BDB7459E9A9F4C67 /* [CP] Copy Pods Resources */ = {
+		229F3402127BFA01E1AF493C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -303,24 +286,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABF7123878116CC4E773B2FD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC54BB0AA678ABD0AACEE015 /* [CP] Check Pods Manifest.lock */ = {
+		46272CE46AD73E2FB05A96AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,7 +308,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE63342F4943458421159D05 /* [CP] Embed Pods Frameworks */ = {
+		48083B05430C5110695EA130 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56D79E7E14F8392139EB6ECF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket/Pods-Ludopocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		729E2DF4C71102EC3D7A2260 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,7 +359,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ludopocket-LudopocketTests/Pods-Ludopocket-LudopocketTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCAEA38EE37ED570264F2F8C /* [CP] Check Pods Manifest.lock */ = {
+		EE4A15E7C86E7B922257B0CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,7 +414,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A05304C706428B03DE54BEC9 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */;
+			baseConfigurationReference = 90CE16326BBF9D6B37129CE0 /* Pods-Ludopocket-LudopocketTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -441,7 +441,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90B12027975C4A7CEF89AE22 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */;
+			baseConfigurationReference = 8FFED19067D75543F1875F37 /* Pods-Ludopocket-LudopocketTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -465,7 +465,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA5862BC1DE6FB0C542F9367 /* Pods-Ludopocket.debug.xcconfig */;
+			baseConfigurationReference = 1C1480B2BBB79461BDF77AC3 /* Pods-Ludopocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -492,7 +492,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8652774DBD7D2B2F334BB6FB /* Pods-Ludopocket.release.xcconfig */;
+			baseConfigurationReference = C95489BD663C514FD851ECDB /* Pods-Ludopocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

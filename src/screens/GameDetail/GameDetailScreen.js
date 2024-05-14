@@ -6,11 +6,13 @@ import colors from '../../config/colors';
 import {IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ThreeSelectableButtons from '../../components/ThreeSelectableButtons';
+import StatText from '../../components/StatText';
 import {useMutation, useQuery} from '@apollo/client';
 import {
   INSERT_REGISTERED_GAMES,
   UPDATE_REGISTERED_GAMES,
   DELETE_ONE_REGISTERED_GAMES,
+  UPDATE_PLAYED_DATA_REGISTERED_GAMES,
 } from '../../services/graphql/mutation/RegisteredGameMutations';
 import {GET_ONE_REGISTERED_GAME} from '../../services/graphql/query/RegisteredGameQueries';
 import LoadingPopUp from '../../components/popup/LoadingPopUp';
@@ -20,6 +22,7 @@ import {
 } from '../../data/contexts/RegisteredGameContext';
 
 import {useUserId} from '@nhost/react';
+import CounterAndShowButtons from './CounterAndShowButtons';
 
 function GameDetailScreen({route, navigation}) {
   const {game} = route.params;
@@ -31,6 +34,7 @@ function GameDetailScreen({route, navigation}) {
   //const {setRegisteredGamesDataForUpdate} = useRegisteredGamesData();
 
   const [loading, setLoading] = useState(true);
+  const [isAddingToPlayed, setisAddingToPlayed] = useState(false);
   const {RegisteredGamesData, setRegisteredGamesData} =
     useRegisteredGamesData();
 
@@ -41,6 +45,8 @@ function GameDetailScreen({route, navigation}) {
         console.log(
           'registeredGameID:',
           data.REGISTERED_GAME[0].registeredGameID,
+          'number of time played :',
+          data.REGISTERED_GAME[0].numberOfTimePlayed,
         );
         setRegisteredGameData(data.REGISTERED_GAME[0]);
       } else {
@@ -80,11 +86,10 @@ function GameDetailScreen({route, navigation}) {
           data.insert_REGISTERED_GAME_one.registeredGameID,
         );
         setRegisteredGameData(data.insert_REGISTERED_GAME_one);
-        // Obtenir les données et la fonction setRegisteredGamesData depuis le contexte
         const updatedRegisteredGames = [
           ...RegisteredGamesData,
           data.insert_REGISTERED_GAME_one,
-        ]; // Ajouter le nouveau jeu à la liste existante
+        ];
         updateRegisteredGames(updatedRegisteredGames, setRegisteredGamesData);
       },
       onError: error => {
@@ -106,7 +111,8 @@ function GameDetailScreen({route, navigation}) {
           );
           console.log(setRegisteredGamesData.registeredGameID);
           updateRegisteredGames(updatedRegisteredGames, setRegisteredGamesData);
-          console.log('Jeu mis à jour');
+          setRegisteredGameData(data.update_REGISTERED_GAME_by_pk);
+          console.log('Jeu mis à jour :', data.update_REGISTERED_GAME_by_pk);
 
           if (
             !data.update_REGISTERED_GAME_by_pk.isOwned &&
@@ -120,6 +126,9 @@ function GameDetailScreen({route, navigation}) {
                   data.update_REGISTERED_GAME_by_pk.registeredGameID,
               },
             });
+          } else if (isAddingToPlayed) {
+            setisAddingToPlayed(false);
+            handleAddPlay();
           }
         } catch (error) {
           console.error('Error updating context:', error);
@@ -130,30 +139,43 @@ function GameDetailScreen({route, navigation}) {
       },
     },
   );
+  const [updatePlayedData] = useMutation(UPDATE_PLAYED_DATA_REGISTERED_GAMES, {
+    onCompleted: async data => {
+      try {
+        const updatedRegisteredGames = RegisteredGamesData.map(game =>
+          game.registeredGameID ===
+          data.update_REGISTERED_GAME_by_pk.registeredGameID
+            ? data.update_REGISTERED_GAME_by_pk
+            : game,
+        );
+        console.log(setRegisteredGamesData.registeredGameID);
+        updateRegisteredGames(updatedRegisteredGames, setRegisteredGamesData);
+        setRegisteredGameData(data.update_REGISTERED_GAME_by_pk);
+        //console.log('Jeu mis à jour :', data.REGISTERED_GAME[0]);
+      } catch (error) {
+        console.error('Error updating context:', error);
+      }
+    },
+    onError: error => {
+      console.error('Error update played data:', error);
+    },
+  });
 
   useEffect(() => {
     if (registeredGameDataInScreen) {
-      console.log('existe : ' + registeredGameDataInScreen.registeredGameID);
       setPossessionSelected(registeredGameDataInScreen.isOwned);
       setPlayedSelected(registeredGameDataInScreen.isPlayed);
       setFavoriteSelected(registeredGameDataInScreen.isWished);
     }
   }, [registeredGameDataInScreen]);
 
-  const onAddBoardGame = async (isOwned, isPlayed, isWished) => {
+  const onAddBoardGame = async (
+    isOwned,
+    isPlayed,
+    isWished,
+    isAddingToPlayed = false,
+  ) => {
     try {
-      console.log(
-        game.barcodeID +
-          ' for user ' +
-          userId +
-          ', owned ' +
-          isOwned +
-          ',played ' +
-          isPlayed +
-          ', wished ' +
-          isWished,
-      );
-      //console.log(registeredGameDataInScreen);
       if (
         registeredGameDataInScreen == null ||
         registeredGameDataInScreen.registeredGameID == null
@@ -166,6 +188,8 @@ function GameDetailScreen({route, navigation}) {
             isPlayed,
             isWished,
             userID: userId,
+            dateLastPlayed: isAddingToPlayed ? new Date().toISOString() : null,
+            numberOfTimePlayed: isAddingToPlayed ? 1 : null,
           },
         });
       } else {
@@ -185,6 +209,16 @@ function GameDetailScreen({route, navigation}) {
     }
   };
 
+  const updateNumberOfTimePlayed = async newNumberOfTimePlayed => {
+    await updatePlayedData({
+      variables: {
+        registeredGameID: registeredGameDataInScreen.registeredGameID,
+        dateLastPlayed: new Date().toISOString(),
+        numberOfTimePlayed: newNumberOfTimePlayed,
+      },
+    });
+  };
+
   const handlePossessionPress = () => {
     const newPossessionSelected = !possessionSelected;
     setPossessionSelected(newPossessionSelected);
@@ -194,13 +228,38 @@ function GameDetailScreen({route, navigation}) {
   const handlePlayedPress = () => {
     const newPlayedSelected = !playedSelected;
     setPlayedSelected(newPlayedSelected);
-    onAddBoardGame(possessionSelected, newPlayedSelected, favoriteSelected);
+    setisAddingToPlayed(true);
+    onAddBoardGame(
+      possessionSelected,
+      newPlayedSelected,
+      favoriteSelected,
+      true,
+    );
   };
 
   const handleFavoritePress = () => {
     const newFavoriteSelected = !favoriteSelected;
     setFavoriteSelected(newFavoriteSelected);
     onAddBoardGame(possessionSelected, playedSelected, newFavoriteSelected);
+  };
+
+  const handleSubtractPlay = () => {
+    if (
+      registeredGameDataInScreen.isPlayed &&
+      registeredGameDataInScreen.numberOfTimePlayed > 1
+    ) {
+      const newNumberOfTimePlayed =
+        registeredGameDataInScreen.numberOfTimePlayed - 1;
+      updateNumberOfTimePlayed(newNumberOfTimePlayed);
+    }
+  };
+
+  const handleAddPlay = () => {
+    if (registeredGameDataInScreen.isPlayed) {
+      const newNumberOfTimePlayed =
+        registeredGameDataInScreen.numberOfTimePlayed + 1;
+      updateNumberOfTimePlayed(newNumberOfTimePlayed);
+    }
   };
 
   return (
@@ -224,6 +283,21 @@ function GameDetailScreen({route, navigation}) {
           handlePlayedPress={handlePlayedPress}
           handleFavoritePress={handleFavoritePress}
         />
+        {registeredGameDataInScreen && registeredGameDataInScreen.isPlayed && (
+          <View style={styles.centeredContainer}>
+            <CounterAndShowButtons
+              onPressSubtract={handleSubtractPlay}
+              onPressAdd={handleAddPlay}
+              numberPlayed={registeredGameDataInScreen.numberOfTimePlayed}
+            />
+          </View>
+        )}
+        {registeredGameDataInScreen && registeredGameDataInScreen.isPlayed && (
+          <AppText style={styles.descText}>
+            Joué la derniere fois le:{' '}
+            {registeredGameDataInScreen.dateLastPlayed}
+          </AppText>
+        )}
         <AppText style={styles.descText}>{game.description}</AppText>
         <LoadingPopUp visible={loading && insertLoading && updateLoading} />
       </View>
@@ -238,7 +312,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     resizeMode: 'contain',
-    backgroundColor: colors.mainCream,
+    backgroundColor: colors.mainWhite,
   },
   horizontalView: {
     flexDirection: 'row',
@@ -259,6 +333,10 @@ const styles = StyleSheet.create({
     margin: 20,
     marginTop: 10,
     fontSize: 12,
+  },
+  centeredContainer: {
+    alignItems: 'center',
+    flex: 1,
   },
 });
 
