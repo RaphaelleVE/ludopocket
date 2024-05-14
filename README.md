@@ -1,4 +1,4 @@
-L'APK et l'IPA de l'application a été fournis dans le rendu d'icampus. 
+L'APK de l'application a directement été fourni dans le rendu d'icampus. 
 
 Voici les étapes a suivre pour installer l'APK (pour les téléphones android) : 
 
@@ -27,35 +27,9 @@ Touchez le fichier APK pour démarrer le processus d'installation. Vous devrez p
 Suivez les instructions à l'écran pour terminer l'installation de l'application. Une fois l'installation terminée, vous pourrez ouvrir et utiliser l'application sur votre téléphone.
 
 
-Voici les étapes a suivre pour installer le IPA (pour les Iphones) : 
-
-Étape 1 : Préparation du fichier IPA
-Assurez-vous d'avoir le fichier IPA que vous souhaitez installer sur votre iPhone. Vous pouvez obtenir ce fichier à partir de sources telles que des développeurs d'applications ou des sites de téléchargement d'applications.
-
-Étape 2 : Installation d'iTunes
-Si vous n'avez pas déjà iTunes sur votre ordinateur, téléchargez et installez la dernière version d'iTunes depuis le site officiel d'Apple.
-
-Étape 3 : Connectez votre iPhone à votre ordinateur
-Utilisez un câble Lightning pour connecter votre iPhone à votre ordinateur. Assurez-vous que votre iPhone est déverrouillé et que vous avez autorisé la connexion à cet ordinateur.
-
-Étape 4 : Ouvrez iTunes
-Une fois votre iPhone connecté, ouvrez iTunes sur votre ordinateur.
-
-Étape 5 : Ajoutez le fichier IPA à iTunes
-Dans iTunes, accédez à la section "Bibliothèque" et sélectionnez "Applications". Faites glisser et déposez le fichier IPA que vous avez téléchargé dans la fenêtre iTunes ou cliquez sur "Fichier" dans la barre de menu, puis sur "Ajouter le fichier à la bibliothèque" pour sélectionner le fichier IPA.
-
-Étape 6 : Synchronisation de votre iPhone
-Après avoir ajouté le fichier IPA à iTunes, synchronisez votre iPhone en cliquant sur le bouton "Synchroniser" dans iTunes. Cela transférera le fichier IPA sur votre iPhone.
-
-Étape 7 : Autorisation de l'application
-Sur votre iPhone, accédez à "Réglages" > "Général" > "Gestion des appareils" ou "Gestion des profils et des appareils". Vous devriez voir l'application que vous venez d'installer répertoriée ici. Cliquez dessus et appuyez sur "Faire confiance" pour autoriser l'application à s'exécuter sur votre iPhone.
-
-Étape 8 : Lancez l'application
-Une fois l'application autorisée, vous pouvez maintenant lancer l'application depuis l'écran d'accueil de votre iPhone.
 
 
-
-Si vous souhaitez directement lancé l'application depuis le code sur votre ordinateur, suivez ces étapes: 
+Si vous souhaitez directement lancer l'application depuis le code sur votre ordinateur, ou si vous utilisez un iphone suivez ces étapes: 
 
 Étape 1 : Vérification des prérequis
 Assurez-vous que votre système répond aux exigences de base pour le développement React Native. Vous aurez besoin de Node.js, npm (ou Yarn), Python, JDK (Java Development Kit) et un émulateur Android ou Xcode pour iOS, selon la plateforme sur laquelle vous souhaitez développer.
