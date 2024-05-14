@@ -63,8 +63,8 @@ Assurez-vous que votre système répond aux exigences de base pour le développe
 Étape 2 : Installation de Node.js et npm (ou Yarn)
 Téléchargez et installez la dernière version de Node.js à partir du site officiel. npm est inclus avec Node.js. Si vous préférez utiliser Yarn, vous pouvez l'installer à l'aide de npm avec la commande suivante :
 
-Copier le code
 npm install -g yarn
+
 Étape 3 : Installation de Python
 Téléchargez et installez Python à partir du site officiel. Assurez-vous de cocher la case "Ajouter Python à PATH" lors de l'installation.
 
@@ -83,35 +83,31 @@ Si vous développez sur un système macOS et que vous souhaitez créer des appli
 Étape 8 : Configuration de l'environnement de développement React Native
 Maintenant que vous avez installé toutes les dépendances nécessaires, vous êtes prêt à configurer votre environnement de développement React Native. Ouvrez une fenêtre de terminal et exécutez la commande suivante pour installer l'interface en ligne de commande React Native (CLI) :
 
-java
-Copier le code
 npm install -g @react-native-community/cli
-ou avec Yarn :
 
-sql
-Copier le code
+ou avec Yarn :
 yarn global add @react-native-community/cli
+
 Étape 9 : Création d'une nouvelle application React Native
 Pour créer une nouvelle application React Native, utilisez la CLI React Native. Exécutez la commande suivante dans votre terminal pour créer un nouveau projet :
 
-csharp
-Copier le code
 npx react-native init NomDuProjet
+
 ou avec Yarn :
-
-csharp
-Copier le code
 yarn react-native init NomDuProjet
-Étape 10 : Exécution de l'application
-Accédez au répertoire de votre nouveau projet React Native et lancez l'application en exécutant la commande suivante :
 
-arduino
-Copier le code
+Étape 10 : Lancement du serveur métro
+Accédez au répertoire de votre nouveau projet React Native et lancez le serveur en exécutant la commande suivante :
+
 cd NomDuProjet
-npx react-native run-android
+npm start
+
+Étape 11 : Exécution de l'application
+Avec un nouveau terminal Accédez au répertoire de votre nouveau projet React Native et lancez l'application en exécutant la commande suivante :
+ 
+cd NomDuProjet 
+npm run android
+
 ou pour iOS :
-
-arduino
-Copier le code
 cd NomDuProjet
-npx react-native run-ios
+npm run ios
